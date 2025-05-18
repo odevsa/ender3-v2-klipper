@@ -33,24 +33,42 @@
   <br />LED = PIN 17 - 3.3v
   <br />MISO = Not used
 
-## Dependencies
+## Automatic Installation
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/odevsa/ender3-v2-klipper/main/install.sh)"
+```
+
+## Manual Installation
+
+**Dependencies**
 
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install git avahi-daemon avahi-utils -y
+sudo apt-get install git -y
 ```
 
-## /boot/armbianEnv.txt
-
-```
-
-```
-
-## Klipper Installation
+**Kiauh**
 
 ```
 git clone https://github.com/dw-0/kiauh.git ~/kiauh
+```
+
+**Config**
+
+```
+git clone https://github.com/odevsa/ender3-v2-klipper.git /tmp/printer
+mv ~/printer_data/config ~/printer_data/config.bkp
+cp -R /tmp/printer/config/ ~/printer_data/
+sudo reboot
+```
+
+## Klipper
+
+Execute Kiauh utility
+
+```
 ./kiauh/kiauh.sh
 ```
 
@@ -62,11 +80,24 @@ On interface, install
 - Mainsail
 - Crowsnest
 
-## Config
+## /boot/armbianEnv.txt
 
 ```
-git clone https://github.com/odevsa/ender3-v2-klipper.git /tmp/ender3-v2-klipper
-mv ~/printer_data/config ~/printer_data/config.bkp
-cp -R /tmp/ender3-v2-klipper/config/ ~/printer_data/
-sudo reboot
+
+```
+
+## Extra
+
+**Change Hostname**
+Change these files `orangepizero2w` to `printer`
+
+```
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+```
+
+**Avahi**
+
+```
+sudo apt-get install avahi-daemon avahi-utils -y
 ```
