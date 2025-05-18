@@ -15,4 +15,5 @@ git clone https://github.com/odevsa/ender3-v2-klipper.git "$tmp_dir"
 
 echo "=> Coping config into ~/printer_data/..."
 mkdir -p ~/printer_data/
+mv ~/printer_data/config/ ~/printer_data/config.backup/
 cp -R "$tmp_dir/config/" ~/printer_data/

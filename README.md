@@ -68,7 +68,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/odevsa/ender3-v2-klipper/m
 
 ```
 git clone https://github.com/odevsa/ender3-v2-klipper.git /tmp/printer
-mv ~/printer_data/config ~/printer_data/config.bkp
+mv ~/printer_data/config ~/printer_data/config.backup
 cp -R /tmp/printer/config/ ~/printer_data/
 ```
 
