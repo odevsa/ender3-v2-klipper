@@ -80,6 +80,13 @@ cp -R /tmp/printer/config/ ~/printer_data/
 
 ## Extra
 
+**Delay to boot eth0 verification**
+
+```
+sudo systemctl disable systemd-networkd-wait-online.service
+sudo systemctl mask systemd-networkd-wait-online.service
+```
+
 **Change Hostname**
 Change these files `orangepizero2w` to `printer`
 

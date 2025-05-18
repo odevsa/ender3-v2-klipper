@@ -2,10 +2,12 @@
 
 tmp_dir=/tmp/printer
 
-echo "=> Installing dependencies..."
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install git -y
+if ! command -v git &> /dev/null; then
+  echo "=> Installing dependencies..."
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get install git -y
+fi
 
 echo "=> Cloning config into $tmp_dir..."
 sudo rm -rf "$tmp_dir"
