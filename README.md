@@ -66,7 +66,7 @@ sudo reboot
 
 ## Klipper
 
-Execute Kiauh and install klipper, moonraker, klipperscreen, etc.
+Execute kiauh and install klipper, moonraker, klipperscreen, etc.
 
 ```
 ~/kiauh/kiauh.sh
