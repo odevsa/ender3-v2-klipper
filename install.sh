@@ -13,7 +13,8 @@ echo "=> Cloning config into $tmp_dir..."
 sudo rm -rf "$tmp_dir"
 git clone https://github.com/odevsa/ender3-v2-klipper.git "$tmp_dir"
 
-echo "=> Coping config into ~/printer_data/..."
 mkdir -p ~/printer_data/
-mv ~/printer_data/config/ ~/printer_data/config.backup/
+echo "=> Backup old config..."
+mv ~/printer_data/config/ ~/printer_data/config.backup/ >/dev/null 2>&1
+echo "=> Coping config into ~/printer_data/..."
 cp -R "$tmp_dir/config/" ~/printer_data/

@@ -61,7 +61,7 @@ Install:
 ## Automatic Installation
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/odevsa/ender3-v2-klipper/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/odevsa/ender3-v2-klipper/main/install.sh)"
 ```
 
 ## Manual Installation
