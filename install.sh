@@ -2,7 +2,7 @@
 
 tmp_dir=/tmp/printer
 
-if ! command -v git &> /dev/null; then
+if ! command -v git >/dev/null 2>&1; then
   echo "=> Installing dependencies..."
   sudo apt-get update
   sudo apt-get upgrade -y
