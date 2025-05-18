@@ -69,7 +69,7 @@ sudo reboot
 Execute Kiauh utility
 
 ```
-./kiauh/kiauh.sh
+~/kiauh/kiauh.sh
 ```
 
 On interface, install
