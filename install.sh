@@ -5,7 +5,7 @@ tmp_dir=/tmp/printer
 echo "=> Installing dependencies..."
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install git avahi-daemon avahi-utils -y
+sudo apt-get install git -y
 
 echo "=> Installing Kiauh..."
 git clone https://github.com/dw-0/kiauh.git ~/kiauh &> /dev/null
