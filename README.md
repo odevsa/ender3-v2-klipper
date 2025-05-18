@@ -33,6 +33,31 @@
   <br />LED = PIN 17 - 3.3v
   <br />MISO = Not used
 
+## Dependencies
+
+```
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install git -y
+```
+
+## Klipper
+
+**Kiauh**
+
+```
+git clone https://github.com/dw-0/kiauh.git ~/kiauh
+~/kiauh/kiauh.sh
+```
+
+Install:
+
+- Klipper
+- KlipperScreen
+- Moonraker
+- Mainsail
+- Crowsnest
+
 ## Automatic Installation
 
 ```
@@ -41,42 +66,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/odevsa/ender3-v2-klipper/m
 
 ## Manual Installation
 
-**Dependencies**
-
-```
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install git -y
-```
-
-**Kiauh**
-
-```
-git clone https://github.com/dw-0/kiauh.git ~/kiauh
-```
-
-**Config**
-
 ```
 git clone https://github.com/odevsa/ender3-v2-klipper.git /tmp/printer
 mv ~/printer_data/config ~/printer_data/config.bkp
 cp -R /tmp/printer/config/ ~/printer_data/
-sudo reboot
 ```
-
-## Klipper
-
-Execute kiauh and install klipper, moonraker, klipperscreen, etc.
-
-```
-~/kiauh/kiauh.sh
-```
-
-- Klipper
-- KlipperScreen
-- Moonraker
-- Mainsail
-- Crowsnest
 
 ## /boot/armbianEnv.txt
 

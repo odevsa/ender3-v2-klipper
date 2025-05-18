@@ -7,10 +7,6 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install git -y
 
-echo "=> Installing Kiauh..."
-sudo rm -rf ~/kiauh
-git clone https://github.com/dw-0/kiauh.git ~/kiauh
-
 echo "=> Cloning config into $tmp_dir..."
 sudo rm -rf "$tmp_dir"
 git clone https://github.com/odevsa/ender3-v2-klipper.git "$tmp_dir"
