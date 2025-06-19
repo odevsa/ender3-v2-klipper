@@ -72,10 +72,17 @@ mv ~/printer_data/config ~/printer_data/config.backup
 cp -R /tmp/printer/config/ ~/printer_data/
 ```
 
+## Display
+
+```
+sudo armbian-add-overlay display.dts
+```
+
 ## /boot/armbianEnv.txt
 
 ```
-
+overlay_prefix=sun50i-h616
+overlays=uart5 spidev1_0 spidev1_1
 ```
 
 ## Extra
@@ -99,4 +106,10 @@ sudo nano /etc/hosts
 
 ```
 sudo apt-get install avahi-daemon avahi-utils -y
+```
+
+**Permission UART5**
+
+```
+sudo usermod -a -G dialout $USER
 ```

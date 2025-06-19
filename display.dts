@@ -1,0 +1,68 @@
+/*
+    VCC = PIN 17 - 3.3v  
+    GND = PIN 20 - GND  
+    CS = PIN 24 - PH5 (229)  
+    RESET = PIN 22 - PI6 (262)  
+    DC/RS = PIN 18 - PH4 (228)  
+    MOSI = PIN 19 - PH7 (231)  
+    SCK = PIN 23 - PH6 (230)  
+    LED = PIN 17 - 3.3v  
+    MISO = PIN 21 - PH8 (232)
+*/
+
+/dts-v1/;
+/plugin/;
+/ {
+    compatible = "allwinner,sun50i-h616";
+    fragment@0 {
+        target = <&spi1>;
+        __overlay__ {
+            status = "okay";
+            pinctrl-names = "default"; //new for linux 6.13
+            pinctrl-0 = <&spi1_pins>; //new for linux 6.13
+            cs-gpios = <&pio 7 5 0>, <&pio 7 8 0>; // PH5 = CS0 (display), PH8 = CS1 (touch)
+            panel: panel@0 {
+                compatible = "panel-mipi-dbi-spi";
+                reg = <0>;
+                spi-max-frequency = <40000000>;
+                width-mm=<74>;
+                height-mm=<49>;
+                reset-gpios = <&pio 8 6 0>; // PI6
+                dc-gpios = <&pio 7 4 0>; // PH4
+                write-only;
+                format = "b6x2g6x2r6x2";
+                panel-timing {
+                    hactive = <480>;
+                    vactive = <320>;
+                    hback-porch = <0>;
+                    vback-porch = <0>;
+                    clock-frequency = <0>;
+                    hfront-porch = <0>;
+                    hsync-len = <0>;
+                    vfront-porch = <0>;
+                    vsync-len = <0>;
+                };
+            };
+
+            ads7846: ads7846@1 {
+                compatible = "ti,ads7846";
+                reg = <1>;
+                pinctrl-names = "default";
+                spi-max-frequency = <1000000>;
+                interrupt-parent = <&pio>;
+                interrupts = <7 9 2>; /* PH9 - IRQ */
+                pendown-gpio = <&pio 7 9 1>; /* PH9 */
+                
+                /* OPTIONS */
+                ti,x-min = /bits/ 16 <0>;
+                ti,y-min = /bits/ 16 <0>;
+        		ti,x-max = /bits/ 16 <0xFFF>;
+	        	ti,y-max = /bits/ 16 <0xFFF>;
+                ti,pressure-min = /bits/ 16 <0>;
+                ti,pressure-max = /bits/ 16 <0xFFF>;
+                ti,x-plate-ohms = /bits/ 16 <400>;
+                ti,swap-xy = <1>;
+	        };
+        };
+    };
+};
